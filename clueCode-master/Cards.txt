@@ -1,0 +1,21 @@
+3 Ms. Scarlett
+3 Mr. Green
+3 Professor Plum
+3 Mrs. White
+3 Ms. Peacock
+3 Colonel Mustard
+1 Rope
+1 Candlestick
+1 Knife
+1 Lead Pipe
+1 Revolver
+1 Wrench
+2 Kitchen
+2 Lounge
+2 Conservatory
+2 Study
+2 Billiard Room
+2 Dining Room
+2 Ballroom
+2 Hall
+2 Library

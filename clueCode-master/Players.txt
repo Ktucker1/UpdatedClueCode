@@ -1,0 +1,24 @@
+Ms. Scarlett
+Red
+7
+0
+Mrs. White
+White
+24
+18
+Ms. Peacock
+Blue
+14
+24
+Colonel Mustard
+Yellow
+0
+17
+Mr. Green
+Green
+24
+6
+Professor Plum
+Purple
+0
+7
