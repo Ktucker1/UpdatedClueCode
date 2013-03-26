@@ -1,4 +1,4 @@
-3 Ms. Scarlett
+3 Ms. Scarlet
 3 Mr. Green
 3 Professor Plum
 3 Mrs. White
@@ -7,7 +7,7 @@
 1 Rope
 1 Candlestick
 1 Knife
-1 Lead Pipe
+1 Pipe
 1 Revolver
 1 Wrench
 2 Kitchen

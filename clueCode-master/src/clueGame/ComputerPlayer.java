@@ -10,8 +10,13 @@ public class ComputerPlayer extends Player {
 	private ArrayList<Card> unseenCards;
 	
 	public ComputerPlayer() {
+		super();
 		seenCards = new ArrayList<Card>();
 		unseenCards = new ArrayList<Card>();
+	}
+	
+	public ComputerPlayer(String n, String c, int index) {
+		super(n, c, index);
 	}
 	
 	public BoardCell pickLocation(HashSet<BoardCell> a){
@@ -31,15 +36,12 @@ public class ComputerPlayer extends Player {
 		}else{
 			return targets.get(0);
 		}
-		
 	}
 
 	public Suggestion createSuggestion(String room){
 		ArrayList<Card> suggestion = new ArrayList<Card>();
 		ArrayList<Card> remainCards =  new ArrayList<Card>();
-		for(Card i: unseenCards){
-			remainCards.add(i);
-		}
+			remainCards.addAll(unseenCards);
 		Collections.shuffle(remainCards);
 		boolean weapon = false;
 		boolean person = false;
@@ -81,6 +83,8 @@ public class ComputerPlayer extends Player {
 	}
 	public void addSeen(Card i) {
 		this.seenCards.add(i);
-		this.unseenCards.remove(i);
+	}
+	public void addUnseen(Card i){
+		this.unseenCards.add(i);
 	}
 }

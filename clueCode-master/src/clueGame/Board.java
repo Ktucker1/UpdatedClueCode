@@ -77,8 +77,15 @@ public class Board {
 		}
 		populateRoomsFromLegend();
 		populateCellsFromMap();
+		int index = 0;
+		for(int row = 0;row < numRows;row++){
+			for(int col = 0; col < numColumns;col++){
+				cells.get(index).setRow(row);
+				cells.get(index).setCol(col);
+			}
+			index++;
+		}
 	}
-
 	public int configCheckNumberRows() {
 		initMapReader();
 

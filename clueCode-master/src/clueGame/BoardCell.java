@@ -9,12 +9,16 @@ public abstract class BoardCell {
 	//private Boolean walkway, door, room;
 	private int row, column;
 	private DoorDirection doorDirection = DoorDirection.NONE;
+	private char roomInitial;
 	
 	public Boolean isWalkway() {
 		return false;
 	}
 	public char getRoomInitial(){
-		return ';';
+		return roomInitial;
+	}
+	public void setRoomInitial(char initial){
+		this.roomInitial = initial;
 	}
 	public Boolean isRoom() {
 		return false;

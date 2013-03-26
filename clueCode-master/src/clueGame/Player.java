@@ -1,6 +1,7 @@
 package clueGame;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Player {
@@ -22,20 +23,24 @@ public class Player {
 	public Card disproveSuggestion(String person, String weapon, String room){
 		ArrayList<Card> matchedCards = new ArrayList<Card>();
 		Random random = new Random();
-		for(Card c:listOfCards)
-		if (c.getName().equals(person)|| c.getName().equals(room)||c.getName().equals(weapon)){
+		boolean haveCards = false;
+		Collections.shuffle(listOfCards);
+		for(Card c: listOfCards){
+			//System.out.println(c.getName() + " nAME OF CARD");
+			if (c.getName().equals(person)|| c.getName().equals(weapon)||c.getName().equals(room)){
 			matchedCards.add(c);
+			haveCards = true;
+			System.out.println(matchedCards.get(0).getName() + " this is a matched Card");
+			}
 		}
-		if(matchedCards.size() > 1){
-			int cardChoice = random.nextInt(matchedCards.size());
-			return matchedCards.get(cardChoice);
+			if(haveCards){
+				int cardChoice = random.nextInt(matchedCards.size());
+				return matchedCards.get(cardChoice);
+			
+		}else{
+			return null;
 		}
-		if(matchedCards.size() == 1){
-			return matchedCards.get(0);
-		}
-		return null;
 	}
-
 	public ArrayList<Card> getListOfCards() {
 		return listOfCards;
 	}
@@ -52,7 +57,7 @@ public class Player {
 		this.name = name;
 	}
 	public void addCard(Card card) {
-		listOfCards.add(card);
+		this.listOfCards.add(card);
 	}
 	public int getLocation() {
 		return location;

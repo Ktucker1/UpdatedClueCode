@@ -10,15 +10,14 @@ public class RoomCell extends BoardCell {
 		}
 	}
 
-	private char roomInitial;
 	private DoorDirection doorDirection;
 	
 	public RoomCell() {
-		roomInitial = 'X';
+		super.setRoomInitial('X');
 	}
 	
 	public RoomCell(String codeIn) {
-		roomInitial = codeIn.charAt(0);
+		setRoomInitial(codeIn.charAt(0));
 		if (codeIn.length() == 1) {
 			doorDirection = DoorDirection.NONE;
 		} else {
@@ -53,10 +52,6 @@ public class RoomCell extends BoardCell {
 //			return false;
 //		} else
 //			return true;
-	}
-	
-	public char getInitial(){
-		return roomInitial;
 	}
 	
 	@Override

@@ -2,7 +2,7 @@ package clueGame;
 
 public class Card {
 	public enum CardType {ROOM,WEAPON,PERSON};
-	public String name;
+	private String name;
 	private CardType cardType;
 
 	
@@ -12,7 +12,7 @@ public class Card {
 	}
 	
 	public CardType getCardType(){
-		return null;
+		return cardType;
 	}
 	public void setCardType(CardType card){
 		this.cardType = card;
