@@ -30,7 +30,7 @@ public class Player {
 			if (c.getName().equals(person)|| c.getName().equals(weapon)||c.getName().equals(room)){
 			matchedCards.add(c);
 			haveCards = true;
-			System.out.println(matchedCards.get(0).getName() + " this is a matched Card");
+			//System.out.println(matchedCards.get(0).getName() + " this is a matched Card");
 			}
 		}
 			if(haveCards){

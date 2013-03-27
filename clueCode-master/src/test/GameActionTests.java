@@ -20,7 +20,6 @@ public class GameActionTests {
 	public Player person;
 	private static Card peacockCard;
 	private static Card plumCard;
-	private static Card ballroomCard;
 	private static Card studyCard;
 	private static Card pipeCard;
 	private static Card wrenchCard;
@@ -52,7 +51,7 @@ public class GameActionTests {
 		kitchenCard = new Card("Kitchen", Card.CardType.ROOM);
 		billardCard = new Card("Billiard room", Card.CardType.ROOM);
 		libraryCard = new Card("Library", Card.CardType.ROOM);
-		diningCard = new Card("Dining room", Card.CardType.ROOM);
+		diningCard = new Card("Dining Room", Card.CardType.ROOM);
 		loungeCard = new Card("Lounge", Card.CardType.ROOM);
 		hallCard = new Card("Hall", Card.CardType.ROOM);
 		studyCard = new Card("Study", Card.CardType.ROOM);
@@ -123,9 +122,9 @@ public class GameActionTests {
 			}
 		}
 			Assert.assertEquals(200, peacock + pipe);
-			System.out.println(peacock + " peacock");
+			//System.out.println(peacock + " peacock");
 			assertTrue(peacock > 10);
-			System.out.println(pipe + " pipe");
+			//System.out.println(pipe + " pipe");
 			assertTrue(pipe > 10);
 			//Multiple players test
 			ArrayList<ComputerPlayer> comp = new ArrayList<ComputerPlayer>();
@@ -250,10 +249,11 @@ public class GameActionTests {
 		for(int i=0;i<200;i++){
 			Suggestion newSuggest = comp.createSuggestion("Study");
 			//Did the suggestion make a correct room?
-			Assert.assertEquals(studyCard,newSuggest.getRoom());
-			if (newSuggest.getPerson().equals(plumCard) && newSuggest.getWeapon().equals(pipeCard)){
+			Assert.assertEquals(studyCard.getName(),newSuggest.getRoom().getName());
+			//System.out.println(newSuggest.getPerson().getName() + " this is the Name");
+			if (newSuggest.getPerson().getName().equals(plumCard.getName()) && newSuggest.getWeapon().getName().equals(pipeCard.getName())){
 				plumPipe++;
-			}else if (newSuggest.getPerson().equals(plumCard) && newSuggest.getWeapon().equals(wrenchCard)){
+			}else if (newSuggest.getPerson().getName().equals(plumCard.getName()) && newSuggest.getWeapon().getName().equals(wrenchCard.getName())){
 				plumWrench++;
 			}else{
 				fail("Invalid Selection");
@@ -263,13 +263,13 @@ public class GameActionTests {
 		Assert.assertTrue(plumPipe > 10);
 		Assert.assertTrue(plumWrench > 10);
 		//Test if only one suggestion is avalible
-		comp.addSeen(wrenchCard);
+		comp.getUnseenCards().remove(wrenchCard);
 		comp.setLocation(testBoard.calcIndex(8,8));
 		plumPipe = 0;
 		for (int i=0;i<100;i++){
 			Suggestion newSuggest = comp.createSuggestion("Dining Room");
-			Assert.assertEquals(new Card(("Dining Room"), Card.CardType.ROOM),newSuggest.getRoom());
-			if (newSuggest.getPerson().equals(plumCard) && newSuggest.getWeapon().equals(pipeCard)){
+			Assert.assertEquals(diningCard.getName(),newSuggest.getRoom().getName());
+			if (newSuggest.getPerson().getName().equals(plumCard.getName()) && newSuggest.getWeapon().getName().equals(pipeCard.getName())){
 				plumPipe++;
 			}else{
 				fail("Invalid selection");

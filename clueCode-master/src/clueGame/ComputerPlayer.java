@@ -45,7 +45,7 @@ public class ComputerPlayer extends Player {
 		Collections.shuffle(remainCards);
 		boolean weapon = false;
 		boolean person = false;
-		System.out.println(remainCards.size()+ " this is reamining size");
+		//System.out.println(remainCards.size()+ " this is reamining size");
 		for(int i=0;i<remainCards.size();i++){
 			if(remainCards.get(i).getCardType() == Card.CardType.PERSON && person == false){
 				suggestion.add(remainCards.get(i));
@@ -63,9 +63,17 @@ public class ComputerPlayer extends Player {
 			}
 		}
 		suggestion.add(new Card(room,Card.CardType.ROOM));
-		System.out.print(suggestion.size() +  " this is the size");
-		Suggestion newSuggestion = new Suggestion(suggestion.get(0),suggestion.get(1),suggestion.get(2));
-		return newSuggestion;
+		//System.out.print(suggestion.size() +  " this is the size");
+		//System.out.println(suggestion.get(0).getName() + " this is 0");
+		//System.out.println(suggestion.get(1).getName() + " this is 1");
+		//System.out.println(suggestion.get(2).getName() + " this is 2");
+		if(suggestion.get(0).getCardType() == Card.CardType.PERSON){
+			Suggestion newSuggestion = new Suggestion(suggestion.get(0),suggestion.get(1),suggestion.get(2));
+			return newSuggestion;
+		}else{
+			Suggestion newSuggestion = new Suggestion(suggestion.get(1),suggestion.get(0),suggestion.get(2));
+			return newSuggestion;
+		}
 	}
 
 	public void setLastRoom(char c) {
